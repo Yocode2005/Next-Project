@@ -1,25 +1,27 @@
-import mongoose, { Document, Schema } from 'mongoose';
+import mongoose, { Document, Schema } from "mongoose";
 
-export interface Message extends Document { // schema for the message 
+export interface Message extends Document {
+  // schema for the message
   content: string;
-createdAt: Date;
+  createdAt: Date;
   timestamp: Date;
 }
 
 const MessageSchema: Schema<Message> = new Schema({
   content: { type: String, required: true },
-  createdAt: { type: Date, required: true , default: Date.now },
+  createdAt: { type: Date, required: true, default: Date.now },
   timestamp: { type: Date, default: Date.now },
 });
 
-export interface User extends Document { // schema for the user 
+export interface User extends Document {
+  // schema for the user
   username: string;
   email: string;
   password: string;
   verifyCode: string;
   verifyCodeExpiry: Date;
   isAcceptingMessages: boolean;
-  message: Message[];// for the messages sent to the user
+  message: Message[]; // for the messages sent to the user
 }
 
 const UserSchema: Schema<User> = new Schema({
@@ -29,5 +31,5 @@ const UserSchema: Schema<User> = new Schema({
   verifyCode: { type: String },
   verifyCodeExpiry: { type: Date },
   isAcceptingMessages: { type: Boolean, default: true },
-  message: [{ type: Schema.Types.ObjectId, ref: 'Message' }],
+  message: [{ type: Schema.Types.ObjectId, ref: "Message" }],
 });
