@@ -12,5 +12,12 @@ const MessageSchema: Schema<Message> = new Schema({
   timestamp: { type: Date, default: Date.now },
 });
 
+export interface User extends Document { // schema for the user model
+  email: string;
+  password: string;
+}
 
-
+const UserSchema: Schema<User> = new Schema({
+  email: { type: String, required: true, unique: true },
+  password: { type: String, required: true },
+});
