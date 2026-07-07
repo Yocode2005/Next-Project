@@ -1,6 +1,6 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
-export interface Message extends Document { // schema for the message model
+export interface Message extends Document { // schema for the message 
   content: string;
 createdAt: Date;
   timestamp: Date;
@@ -12,7 +12,7 @@ const MessageSchema: Schema<Message> = new Schema({
   timestamp: { type: Date, default: Date.now },
 });
 
-export interface User extends Document { // schema for the user model
+export interface User extends Document { // schema for the user 
   email: string;
   password: string;
 }
