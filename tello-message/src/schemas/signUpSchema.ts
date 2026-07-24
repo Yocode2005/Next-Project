@@ -1,6 +1,6 @@
 import {z} from "zod"; // used  to validate and verify data before using it in the application
 
-export const usernameValidation = z.string().min(3, "Username must be at least 3 characters long").max(20, "Username must be at most 20 characters long").regex(/^[a-zA-Z0-9_]+$/, "Username can only contain letters, numbers, and underscores");
+export const usernameValidation = z.string().min(3, "Username must be at least 3 characters long").max(20, "Username must be at most 20 characters long").regex(/^[a-zA-Z0-9_]+$/, "username must not contain special characters ")
 
 export const signUpSchema = z.object({
   username: usernameValidation,
